@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('user')->group(function () {
-
+    Route::get('/get', [UserController::class, 'get']);
     Route::post('/store', [UserController::class, 'store']);
 });

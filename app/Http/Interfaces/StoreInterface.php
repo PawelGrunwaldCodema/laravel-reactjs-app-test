@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Interfaces;
+namespace App\Http\Interfaces;
 
 interface StoreInterface
 {
