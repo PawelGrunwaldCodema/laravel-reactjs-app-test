@@ -7,9 +7,14 @@ use App\Models\User;
 
 class UserRepository extends BaseRepository
 {
+    public function __construct()
+    {
+        $this->setEntityName();
+    }
+
     protected function setEntityName()
     {
-        $this->entityName = 'User';
+        $this->entityName = User::class;
     }
 
     public function newModel(): User
