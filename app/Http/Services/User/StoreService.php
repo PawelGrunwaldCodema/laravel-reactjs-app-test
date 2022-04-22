@@ -2,7 +2,7 @@
 
 namespace App\Http\Services\User;
 
-use App\Http\Controllers\Interfaces\StoreInterface;
+use App\Http\Interfaces\StoreInterface;
 use App\Models\User;
 
 class StoreService extends BaseService implements StoreInterface

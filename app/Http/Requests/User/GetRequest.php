@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\User;
 
-use App\Enums\Roles\RoleEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class GetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +23,11 @@ class StoreRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'full_name' => ['required'],
-            'email' => ['required', 'unique:users,email'],
-            'roles' => ['required', 'array', 'min:1', 'in:'.implode(',', RoleEnum::allValues())]
-        ];
+        return [];
+    }
+
+    public function getFilterRoles(): array
+    {
+        return $this->get('roles');
     }
 }

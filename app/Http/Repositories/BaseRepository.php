@@ -2,20 +2,21 @@
 
 namespace App\Http\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
+
 abstract class BaseRepository
 {
-    protected $entityName;
     protected $entity;
 
-    abstract protected function setEntityName();
-
-    protected function getEntityName(): string
-    {
-        return $this->entityName;
-    }
+    abstract protected function setEntity();
 
     protected function getEntity()
     {
-        return $this->entityName::class;
+        return $this->entity;
+    }
+
+    protected function prepareQuery(): Builder
+    {
+        return $this->entity::query();
     }
 }
