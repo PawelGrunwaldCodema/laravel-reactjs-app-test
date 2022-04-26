@@ -5,7 +5,7 @@ namespace App\Http\Services\User;
 use App\Http\Interfaces\StoreInterface;
 use App\Models\User;
 
-class StoreService extends BaseService implements StoreInterface
+class StoreService extends BaseUserService implements StoreInterface
 {
     public function store(array $data): User
     {

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Role\RoleController;
+use App\Http\Controllers\User\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::prefix('role')->group(function () {
+    Route::get('/get', [RoleController::class, 'get']);
+});
 
 Route::prefix('user')->group(function () {
     Route::get('/get', [UserController::class, 'get']);

@@ -2,12 +2,13 @@
 
 namespace App\Http\Repositories\User;
 
+use App\Http\Interfaces\GetInterface;
 use App\Http\Repositories\BaseRepository;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
-class UserRepository extends BaseRepository
+class UserRepository extends BaseRepository implements GetInterface
 {
     public function __construct()
     {
@@ -29,7 +30,7 @@ class UserRepository extends BaseRepository
         $user->save();
     }
 
-    public function get(array $filters): Collection
+    public function get(?array $filters = null): Collection
     {
         $users = $this->prepareQuery()->with('roles');
         $this->applyFilters($users, $filters);
@@ -37,7 +38,7 @@ class UserRepository extends BaseRepository
         return $users->get();
     }
 
-    private function applyFilters(Builder $builder, array $filters): void
+    private function applyFilters(Builder $builder, ?array $filters): void
     {
         if (isset($filters['roles'])) {
             $builder->whereHas('roles', function (Builder $query) use ($filters) {
