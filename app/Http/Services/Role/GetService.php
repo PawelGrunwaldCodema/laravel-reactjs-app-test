@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Services\User;
+namespace App\Http\Services\Role;
 
 use App\Http\Interfaces\GetInterface;
 use Illuminate\Database\Eloquent\Collection;
 
-class GetService extends BaseUserService implements GetInterface
+class GetService extends BaseRoleService implements GetInterface
 {
     public function get(?array $filters = null): Collection
     {
-        return $this->userRepository->get($filters);
+        return $this->roleRepository->get();
     }
 }

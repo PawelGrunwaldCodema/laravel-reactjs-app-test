@@ -4,5 +4,5 @@ namespace App\Http\Interfaces;
 
 interface GetInterface
 {
-    public function get(array $filters): mixed;
+    public function get(?array $filters = null): mixed;
 }
